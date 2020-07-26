@@ -1,6 +1,6 @@
 # Syntax Highlighting in Word
 
-Currently Features: 
+Current Features: 
 - Verilog
 
 This script takes a couple seconds to execute due to the constraints of VBA in declaring related sets of information (i.e. arrays).
