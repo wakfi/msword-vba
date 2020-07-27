@@ -8,5 +8,9 @@ Sub bookmark_this()
         .IgnoreCase = False
         .Pattern = strPattern
     End With
-    ActiveDocument.Bookmarks.Add (regEx.Replace(Replace(Trim(Selection.Text), " ", "_"), ""))
+    Dim bookmarkName As String: bookmarkName = regEx.Replace(Replace(Trim(Selection.Text), " ", "_"), "")
+    If IsNumeric(Selection.Text) Then
+        bookmarkName = "no_" + bookmarkName
+    End If
+    ActiveDocument.Bookmarks.Add (bookmarkName)
 End Sub

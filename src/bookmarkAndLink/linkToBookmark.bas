@@ -12,6 +12,12 @@ Sub link_to_bookmark()
         .Pattern = strPattern
     End With
     Dim bookmarkName As String: bookmarkName = regEx.Replace(Replace(Trim(Selection.Text), " ", "_"), "")
+	If Strings.InStr(1, bookmarkName, Chr(94)) = 1 Then
+        bookmarkName = Strings.Right(bookmarkName, Strings.Len(bookmarkName) - 1)
+    End If
+    If IsNumeric(bookmarkName) Then
+        bookmarkName = "no_" + bookmarkName
+    End If
     If ActiveDocument.Bookmarks.Exists(bookmarkName) Then
         Selection.Hyperlinks.Add Anchor:=Selection.Range, _
          Address:=ActiveDocument.FullName, SubAddress:=bookmarkName
