@@ -20,7 +20,7 @@ Sub link_to_bookmark()
     End If
     If ActiveDocument.Bookmarks.Exists(bookmarkName) Then
         Selection.Hyperlinks.Add Anchor:=Selection.Range, _
-         Address:=ActiveDocument.FullName, SubAddress:=bookmarkName
+         SubAddress:=bookmarkName
     Else
         MsgBox "No bookmark with name " + bookmarkName
     End If
